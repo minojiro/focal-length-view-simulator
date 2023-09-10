@@ -7,6 +7,21 @@ export const SENSOR_FORMATS: SensorFormat[] = [
     height: 24,
   },
   {
+    name: "中判（6x7）",
+    width: 70,
+    height: 60,
+  },
+  {
+    name: "中判（6x6）",
+    width: 60,
+    height: 60,
+  },
+  {
+    name: "中判（645）",
+    width: 60,
+    height: 45,
+  },
+  {
     name: "中判（FUJIFILM GFX）",
     width: 43.8,
     height: 32.9,
