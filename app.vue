@@ -3,7 +3,7 @@ import {} from "~/lib/sizeCalculator";
 import { AngleItem } from "~/types";
 import AngleFrame from "~/components/AngleFrame.vue";
 import AngleItemForm from "~/components/AngleItemForm.vue";
-import { SENSOR_FORMATS, COLORS } from "~/constants";
+import { ADD_SHIFT_SIZE, SENSOR_FORMATS, COLORS } from "~/constants";
 
 useHead({ title: "レンズ焦点距離と画角のシミュレーター" });
 
@@ -28,7 +28,13 @@ const baseAngleItem = computed<AngleItem>(() =>
 );
 
 const addAngleItem = () => {
-  angleItems.value.push(createAngleItem({}));
+  const item = createAngleItem({});
+  const lastItem = angleItems.value[angleItems.value.length - 1];
+  if (lastItem) {
+    item.sensorFormat = lastItem.sensorFormat;
+    item.lensFocalLength = lastItem.lensFocalLength + ADD_SHIFT_SIZE;
+  }
+  angleItems.value.push(item);
 };
 
 const removeAngleItem = (index: number) => {

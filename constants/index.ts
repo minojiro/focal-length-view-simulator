@@ -53,3 +53,5 @@ export const COLORS: string[] = [
   "#6517e6",
   "#37d39a",
 ];
+
+export const ADD_SHIFT_SIZE = 5;
