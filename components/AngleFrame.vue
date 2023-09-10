@@ -15,23 +15,26 @@ const props = defineProps({
 });
 
 const style = computed(() => {
-  const width = getFrameRatio(
-    props.baseAngleItem.sensorFormat.width,
-    props.baseAngleItem.lensFocalLength,
-    props.angleItem.sensorFormat.width,
-    props.angleItem.lensFocalLength
+  const width = Math.min(
+    getFrameRatio(
+      props.baseAngleItem.sensorFormat.width,
+      props.baseAngleItem.lensFocalLength,
+      props.angleItem.sensorFormat.width,
+      props.angleItem.lensFocalLength
+    ),
+    1
   );
-  const height = getFrameRatio(
-    props.baseAngleItem.sensorFormat.height,
-    props.baseAngleItem.lensFocalLength,
-    props.angleItem.sensorFormat.height,
-    props.angleItem.lensFocalLength
+  const height = Math.min(
+    getFrameRatio(
+      props.baseAngleItem.sensorFormat.height,
+      props.baseAngleItem.lensFocalLength,
+      props.angleItem.sensorFormat.height,
+      props.angleItem.lensFocalLength
+    ),
+    1
   );
   return {
     color: "#f00",
-    fontSize: "12px",
-    fontWeight: "bold",
-    border: "2px solid",
     width: `${width * 100}%`,
     height: `${height * 100}%`,
   };
@@ -39,20 +42,12 @@ const style = computed(() => {
 </script>
 
 <template>
-  <div
-    :style="{
-      width: '100%',
-      height: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      right: 0,
-      bottom: 0,
-    }"
-  >
-    <div :style="style">{{ angleItem.lensFocalLength }}mm</div>
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div
+      :style="style"
+      class="border border-2 border-current font-bold text-sm"
+    >
+      {{ angleItem.lensFocalLength }}mm（{{ angleItem.sensorFormat.name }}）
+    </div>
   </div>
 </template>

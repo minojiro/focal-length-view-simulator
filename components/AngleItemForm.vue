@@ -41,13 +41,28 @@ const remove = () => {
 </script>
 
 <template>
-  <div>
-    <select v-model="sensorFormatIndex">
-      <option v-for="(sensorFormat, i) in SENSOR_FORMATS" :key="i" :value="i">
-        {{ sensorFormat.name }}
-      </option>
-    </select>
-    <input type="number" v-model="lensFocalLength" />
-    <button type="button" @click="remove">remove</button>
+  <div class="card card-compact bg-base-200 shadow-xl">
+    <div class="card-body flex-wrap flex flex-row">
+      <div class="flex gap-3 flex-1">
+        <select v-model="sensorFormatIndex" class="select select-bordered">
+          <option
+            v-for="(sensorFormat, i) in SENSOR_FORMATS"
+            :key="i"
+            :value="i"
+          >
+            {{ sensorFormat.name }}
+          </option>
+        </select>
+        <input
+          type="number"
+          class="input input-bordered"
+          placeholder="50"
+          v-model="lensFocalLength"
+        />
+      </div>
+      <button type="button" class="btn btn-neutral" @click="remove">
+        remove
+      </button>
+    </div>
   </div>
 </template>

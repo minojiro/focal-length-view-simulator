@@ -31,17 +31,14 @@ onMounted(() => addAngleItem());
 </script>
 
 <template>
-  <div>
-    <div
-      :style="{
-        position: 'relative',
-        maxWidth: '800px',
-      }"
-    >
+  <div class="max-w-4xl mx-auto">
+    <div class="relative mb-5">
       <img
         src="//placehold.jp/300x200.png"
         alt=""
-        :style="{ width: '100%', verticalAlign: 'middle' }"
+        class="w-full"
+        width="300"
+        height="200"
       />
       <AngleFrame
         v-for="angleItem in angleItems"
@@ -50,13 +47,22 @@ onMounted(() => addAngleItem());
         :baseAngleItem="baseAngleItem"
       />
     </div>
-    <AngleItemForm
-      v-for="(angleItem, i) in angleItems"
-      :key="`form-${angleItem.id}`"
-      :angleItem="angleItem"
-      @update="(val) => (angleItems[i] = val)"
-      @remove="() => removeAngleItem(i)"
-    />
-    <button @click.prevent="addAngleItem">add</button>
+    <div class="flex flex-col gap-2">
+      <AngleItemForm
+        v-for="(angleItem, i) in angleItems"
+        :key="`form-${angleItem.id}`"
+        :angleItem="angleItem"
+        @update="(val) => (angleItems[i] = val)"
+        @remove="() => removeAngleItem(i)"
+      />
+    </div>
+    <p class="mt-5 text-center">
+      <button
+        @click.prevent="addAngleItem"
+        class="btn btn-active btn-primary min-w-[50%]"
+      >
+        add
+      </button>
+    </p>
   </div>
 </template>
