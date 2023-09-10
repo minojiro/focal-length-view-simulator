@@ -51,7 +51,7 @@ onMounted(() => addAngleItem());
     </h1>
     <div class="relative mb-5">
       <img
-        src="//placehold.jp/300x200.png"
+        src="~/assets/images/fullsize20mm.jpg"
         alt=""
         class="w-full"
         width="300"
