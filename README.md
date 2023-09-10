@@ -1,20 +1,15 @@
-# Nuxt 3 Minimal Starter
+# Focal Length View Simulator
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Simulates the angle of view to be cropped based on the camera's sensor size and lens focal length.
+
+<img width="507" alt="screenshot" src="https://github.com/minojiro/focal-length-view-simulator/assets/5090244/cb5df1f9-9043-4497-b4b2-055133101d2d">
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
 ```
 
 ## Development Server
@@ -22,14 +17,13 @@ yarn install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm run dev
+```
 
-# yarn
-yarn dev
+Start automated testing:
+
+```bash
+pnpm run test
 ```
 
 ## Production
@@ -37,27 +31,13 @@ yarn dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm run build
-
-# yarn
-yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm run preview
-
-# yarn
-yarn preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
